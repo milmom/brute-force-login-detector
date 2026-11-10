@@ -53,7 +53,7 @@ if __name__ == "__main__":
         print("Usage: python3 detector.py", sys.argv[0], sys.argv[1])
     
     try:
-        num = int(limit)
+        num = int(CL_input[2])
     except ValueError:
         print("Error: Limit value must be a number")
         
