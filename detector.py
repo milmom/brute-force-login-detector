@@ -56,7 +56,7 @@ if __name__ == "__main__":
         num = int(CL_input[2])
     except ValueError:
         print("Error: Limit value must be a number")
-        
+        return
     
    
 
