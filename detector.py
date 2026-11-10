@@ -45,7 +45,7 @@ def report(path, limit):
     if len(flagged) == 0:
         print("No IPs at or over the limit")
         
-        
-report("auth_sample.log", 3) 
-report("missing.log", 3)
+if __name__ == "__main__":        
+    report("auth_sample.log", 3) 
+    report("missing.log", 3)
 
