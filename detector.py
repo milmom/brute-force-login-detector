@@ -45,18 +45,22 @@ def report(path, limit):
 
     if len(flagged) == 0:
         print("No IPs at or over the limit")
-        
-if __name__ == "__main__":        
-    CL_input = sys.argv
-    
-    if len(CL_input) < 3:
-        print("Usage: python3 detector.py", sys.argv[0], sys.argv[1])
+
+def get_limit(args):
+    if len(args) < 3:
+        print("Usage: python3 detector.py", args[0], args[1])
     
     try:
-        num = int(CL_input[2])
+        limit = int(args[2])
     except ValueError:
         print("Error: Limit value must be a number")
-        return
+        return None
+    return limit
+
+if __name__ == "__main__":        
+    
+    
+    
     
    
 
