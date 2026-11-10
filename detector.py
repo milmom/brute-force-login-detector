@@ -49,12 +49,12 @@ def report(path, limit):
 def get_limit(args):
     if len(args) < 3:
         print("Usage: python3 detector.py <logfile> <limit>")
-    return None
+    return 
     try:
         limit = int(args[2])
     except ValueError:
         print("Error: Limit value must be a number")
-        return 
+        return None
     return limit
 
 if __name__ == "__main__":        
