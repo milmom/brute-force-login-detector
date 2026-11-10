@@ -48,8 +48,8 @@ def report(path, limit):
 
 def get_limit(args):
     if len(args) < 3:
-        print("Usage: python3 detector.py", args[0], args[1])
-    
+        print("Usage: python3 detector.py <logfile> <limit>")
+    return None
     try:
         limit = int(args[2])
     except ValueError:
@@ -60,9 +60,9 @@ def get_limit(args):
 if __name__ == "__main__":        
     
     num = get_limit(sys.argv)
-    if CL_input is not None:
+    if num is not None:
         report(sys.argv[1], num) 
-        report(sys.argv[1], num)
+        
     
    
 
