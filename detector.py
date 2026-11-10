@@ -67,6 +67,5 @@ if __name__ == "__main__":
    
 
     
-    report(CL_input[1], CL_input[2]) 
-    report(CL_input[1], CL_input[2])
+    
 
