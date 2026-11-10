@@ -54,12 +54,12 @@ def get_limit(args):
         limit = int(args[2])
     except ValueError:
         print("Error: Limit value must be a number")
-        return None
+        return 
     return limit
 
 if __name__ == "__main__":        
     
-    
+    CL_input = get_limit(sys.argv)
     
     
    
