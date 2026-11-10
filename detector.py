@@ -1,4 +1,4 @@
-# Project 1: brute-force login detector (Part C)
+# Project 1: brute-force login detector
 def failed_ips(path):
     unsuccessful_logins = []
     with open(path) as f:
