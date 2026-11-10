@@ -60,7 +60,9 @@ def get_limit(args):
 if __name__ == "__main__":        
     
     CL_input = get_limit(sys.argv)
-    
+    if CL_input is not None:
+        report(CL_input[1], CL_input[2]) 
+        report(CL_input[1], CL_input[2])
     
    
 
