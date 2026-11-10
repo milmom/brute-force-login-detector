@@ -1,6 +1,6 @@
 # Brute-Force Login Detector
 
-This file reads an authentication log and counts how many IPs failed to log in. It then flags these IPs with the number of failed logins if the count meets or exceeds the target number of failures.
+This script reads an SSH authentication log, finds the failed login attempts, and counts them per IP address. Any IP whose count meets or exceeds a limit is flagged with an ALERT line showing its number of failed logins. The log file and limit are set in the `report()` calls at the bottom of `detector.py` (currently `auth_sample.log` with a limit of 3).
 
 ## How to run
 
@@ -21,11 +21,10 @@ python3 -m pytest
 
 ```
 ALERT: 203.0.113.5 had 3 failed logins
-ALERT: 192.0.2.44 had 2 failed logins
+ERROR: log file not found: missing.log
 ```
 
-ALERT: 203.0.113.5 had 3 failed logins
-ERROR: log file not found: missing.log
+The second line comes from a deliberate call on a file that doesn't exist, showing that a missing log prints an error instead of crashing.
 
 ## Limitations
 
