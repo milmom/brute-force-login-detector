@@ -48,14 +48,17 @@ def report(path, limit):
         
 if __name__ == "__main__":        
     CL_input = sys.argv
+    
+    if len(CL_input) < 3:
+        print("Usage: python3 detector.py", sys.argv[0], sys.argv[1])
+    
     try:
-        int(limit)
+        num = int(limit)
     except ValueError:
         print("Error: Limit value must be a number")
         
     
-    if len(CL_input) < 2:
-        print("Usage: python3 detector.py", sys.argv[0], sys.argv[1])
+   
 
     
     report(CL_input[1], CL_input[2]) 
