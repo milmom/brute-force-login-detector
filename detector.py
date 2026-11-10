@@ -1,4 +1,5 @@
-# Project 1: brute-force login detector
+import sys # Project 1: brute-force login detector
+
 def failed_ips(path):
     unsuccessful_logins = []
     with open(path) as f:
@@ -46,6 +47,17 @@ def report(path, limit):
         print("No IPs at or over the limit")
         
 if __name__ == "__main__":        
-    report("auth_sample.log", 3) 
-    report("missing.log", 3)
+    CL_input = sys.argv
+    try:
+        int(limit)
+    except ValueError:
+        print("Error: Limit value must be a number")
+        
+    
+    if len(CL_input) < 2:
+        print("Usage: python3 detector.py", sys.argv[0], sys.argv[1])
+
+    
+    report(CL_input[1], CL_input[2]) 
+    report(CL_input[1], CL_input[2])
 
