@@ -17,13 +17,13 @@ def test_failed_ips_from_sample_log():
     assert failed_ips("auth_sample.log") == ["203.0.113.5", "203.0.113.5", "192.0.2.44", "192.0.2.44", "203.0.113.5", "198.51.100.23"]
 
 def test_get_limit_one_input():
-    assert get_limit["detector.py"] == None
+    assert get_limit(["detector.py"]) == None
 
 def test_get_limit_two_inputs():
-    assert get_limit["detector.py", "auth_sample.log"] == None
+    assert get_limit(["detector.py", "auth_sample.log"]) == None
 
 def test_get_limit_string_limit_input():
-    assert get_limit["detector.py", "auth_sample.log", "abc"] == None
+    assert get_limit(["detector.py", "auth_sample.log", "abc"]) == None
 
 def test_get_limit_pass():
-    assert get_limit["detector.py", "auth_sample.log", "3"] == 3
+    assert get_limit(["detector.py", "auth_sample.log", "3"]) == 3
