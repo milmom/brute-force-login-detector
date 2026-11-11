@@ -5,7 +5,7 @@ def failed_ips(path):
     unsuccessful_logins = []
     with open(path) as f:
         for line in f:
-            ip = re.search(r"\d+.\d+.\d+.\d+", line.split(path))
+            ip = re.search(r"\d+\.\d+\.\d+\.\d+", line)
             if ip is None:
                 print("There are no IPs in this log file")
                 return None
