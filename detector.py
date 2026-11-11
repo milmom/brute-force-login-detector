@@ -5,12 +5,13 @@ def failed_ips(path):
     unsuccessful_logins = []
     with open(path) as f:
         for line in f:
-            ip = re.search(r"\d+\.\d+\.\d+\.\d+", line)
-            if ip is None:
-                print("There is no IP in this line")
+            if Failed in line:
+                ip = re.search(r"\d+\.\d+\.\d+\.\d+", line)
+                if ip is None:
+                    print("There is no IP in this line")
                 
-            else:
-                unsuccessful_logins.append(ip.group())
+                else:
+                    unsuccessful_logins.append(ip.group())
                 
         
 
