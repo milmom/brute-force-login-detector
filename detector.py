@@ -1,4 +1,4 @@
-import sys # Project 1: brute-force login detector
+import re import sys # Project 1: brute-force login detector
 
 def failed_ips(path):
     unsuccessful_logins = []
