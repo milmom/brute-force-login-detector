@@ -4,7 +4,7 @@ def failed_ips(path):
     unsuccessful_logins = []
     with open(path) as f:
         for line in f:
-            re.search(r"\d+.\d+.\d+.\d+")
+           ip = re.search(r"\d+.\d+.\d+.\d+")
 
     return unsuccessful_logins
 
