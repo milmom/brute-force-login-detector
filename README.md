@@ -1,13 +1,19 @@
 # Brute-Force Login Detector
 
-This script reads an SSH authentication log, finds the failed login attempts, and counts them per IP address. Any IP whose count meets or exceeds a limit is flagged with an ALERT line showing its number of failed logins. The log file and limit are set in the `report()` calls at the bottom of `detector.py` (currently `auth_sample.log` with a limit of 3).
+This script reads an SSH authentication log, finds the failed login attempts, and counts them per IP address. Any IP whose count meets or exceeds a limit is flagged with an ALERT line showing its number of failed logins. The log file and the limit are given on the command line, so it can be run against any log without editing the code. Missing or invalid input prints a usage or error message instead of crashing.
 
 ## How to run
 
 ```
 git clone https://github.com/milmom/brute-force-login-detector.git
 cd brute-force-login-detector
-python3 detector.py
+python3 detector.py <logfile> <limit>
+```
+
+Example, using the included sample log:
+
+```
+python3 detector.py auth_sample.log 3
 ```
 
 To run the tests:
@@ -20,11 +26,22 @@ python3 -m pytest
 ## Sample output
 
 ```
+$ python3 detector.py auth_sample.log 3
 ALERT: 203.0.113.5 had 3 failed logins
-ERROR: log file not found: missing.log
-```
 
-The second line comes from a deliberate call on a file that doesn't exist, showing that a missing log prints an error instead of crashing.
+$ python3 detector.py auth_sample.log 2
+ALERT: 203.0.113.5 had 3 failed logins
+ALERT: 192.0.2.44 had 2 failed logins
+
+$ python3 detector.py missing.log 3
+ERROR: log file not found: missing.log
+
+$ python3 detector.py auth_sample.log abc
+Error: Limit value must be a number
+
+$ python3 detector.py
+Usage: python3 detector.py <logfile> <limit>
+```
 
 ## Limitations
 
