@@ -1,0 +1,3 @@
+Nov  7 10:00:01 app1 login[400]: Failed login attempt user=admin ip=203.0.113.9
+Nov  7 10:00:05 app1 login[400]: Failed login attempt user=root ip=203.0.113.9
+Nov  7 10:01:00 app1 login[401]: Login success user=jamil ip=198.51.100.7
