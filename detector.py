@@ -4,9 +4,7 @@ def failed_ips(path):
     unsuccessful_logins = []
     with open(path) as f:
         for line in f:
-            if "Failed" in line:
-                w = line.split()
-                unsuccessful_logins.append(w[w.index("from") + 1])
+            re.search(r"\d+.\d+.\d+.\d+")
 
     return unsuccessful_logins
 
