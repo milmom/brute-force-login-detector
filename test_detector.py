@@ -27,3 +27,7 @@ def test_get_limit_string_limit_input():
 
 def test_get_limit_pass():
     assert get_limit(["detector.py", "auth_sample.log", "3"]) == 3
+
+def test_failed_ips_on_no_from_log():
+    assert failed_ips("auth_no_from.log") == ['203.0.113.9', '203.0.113.9', '198.51.100.7']
+
