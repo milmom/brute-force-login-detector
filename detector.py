@@ -6,6 +6,7 @@ def get_time(line):
     t = line[:15]
     timestamp = "2026 " + line[:15]
     time = datetime.strptime(timestamp, "%Y %b %d %H:%M:%S")
+    return time
     
 
 
