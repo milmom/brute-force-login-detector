@@ -4,7 +4,7 @@ from datetime import datetime
 
 def get_time(line):
     t = line[:15]
-    timestamp = "2026 " + line[:15]
+    timestamp = "2026 " + t
     time = datetime.strptime(timestamp, "%Y %b %d %H:%M:%S")
     return time
     
