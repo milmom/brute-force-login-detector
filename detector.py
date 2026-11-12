@@ -1,5 +1,14 @@
 import re 
 import sys # Project 1: brute-force login detector
+from datetime import datetime
+
+def get_time(line):
+    t = line[:15]
+    timestamp = "2026 " + line[:15]
+    time = datetime.strptime(timestamp, "%Y %b %d %H:%M:%S")
+    
+
+
 
 def failed_ips(path):
     unsuccessful_logins = []
