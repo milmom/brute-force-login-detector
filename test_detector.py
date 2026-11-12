@@ -1,5 +1,5 @@
 from datetime import datetime
-from detector import failed_ips, count_by_ip, flag_ips, get_limit # pytest tests for detector.py
+from detector import failed_ips, count_by_ip, flag_ips, get_limit, get_time # pytest tests for detector.py
 #flag_ips with nothing flagged, and failed_ips("auth_sample.log"). (Note: importing detector runs its bottom lines too, so the report output will also print. 
 
 def test_count_by_ip_empty():
