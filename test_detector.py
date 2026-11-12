@@ -31,3 +31,6 @@ def test_get_limit_pass():
 def test_failed_ips_on_no_from_log():
     assert failed_ips("auth_no_from.log") == ['203.0.113.9', '203.0.113.9']
 
+def test_failed_ips_on_mixed_case_log():
+    assert failed_ips("auth_mixed_case.log") == ['203.0.113.77', '203.0.113.77']
+
