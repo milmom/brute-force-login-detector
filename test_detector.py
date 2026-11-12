@@ -34,3 +34,5 @@ def test_failed_ips_on_no_from_log():
 def test_failed_ips_on_mixed_case_log():
     assert failed_ips("auth_mixed_case.log") == ['203.0.113.77', '203.0.113.77']
 
+def test_get_time_on_auth_sample_log():
+    assert get_time("Nov  6 09:12:01 web1 sshd[1201]: Failed password for root from 203.0.113.5 port 52113 ssh2") == datetime(2026, 11, 6, 9, 12, 1)
