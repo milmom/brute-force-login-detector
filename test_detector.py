@@ -39,4 +39,4 @@ def test_get_time_on_auth_sample_log():
     assert get_time("Nov  6 09:12:01 web1 sshd[1201]: Failed password for root from 203.0.113.5 port 52113 ssh2") == datetime(2026, 11, 6, 9, 12, 1)
 
 def test_times_by_ip_on_auth_sample_log():
-    assert times_by_ip("auth_sample.log")['192.0.2.44'] == datetime(
+    assert times_by_ip("auth_sample.log")['192.0.2.44'] == [datetime(2026, 11, 6, 9, 14, 22), datetime(2026, 11, 6, 9, 14, 25)]
