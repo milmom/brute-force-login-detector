@@ -20,9 +20,9 @@ def times_by_ip(path):
                     t = get_time(line)
                     ip_text = ip.group()
                     if ip_text in times:
-                        times[ip].append(t)
+                        times[ip_text].append(t)
                     else:
-                        times[ip] = [t]
+                        times[ip_text] = [t]
     return times
 
 
