@@ -1,5 +1,5 @@
 from datetime import datetime
-from detector import failed_ips, count_by_ip, flag_ips, get_limit, get_time, times_by_ips # pytest tests for detector.py
+from detector import failed_ips, count_by_ip, flag_ips, get_limit, get_time, times_by_ip # pytest tests for detector.py
 #flag_ips with nothing flagged, and failed_ips("auth_sample.log"). (Note: importing detector runs its bottom lines too, so the report output will also print. 
 
 def test_count_by_ip_empty():
@@ -37,3 +37,6 @@ def test_failed_ips_on_mixed_case_log():
 
 def test_get_time_on_auth_sample_log():
     assert get_time("Nov  6 09:12:01 web1 sshd[1201]: Failed password for root from 203.0.113.5 port 52113 ssh2") == datetime(2026, 11, 6, 9, 12, 1)
+
+def test_times_by_ip_on_auth_sample_log():
+    assert times_by_ip("auth_sample.log")['192.0.2.44'] == datetime(
