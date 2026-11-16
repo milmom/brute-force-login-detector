@@ -7,7 +7,23 @@ def get_time(line):
     timestamp = "2026 " + t
     time = datetime.strptime(timestamp, "%Y %b %d %H:%M:%S")
     return time
-    
+
+def times_by_ip(path):
+    times = {}
+    with open(path) as f:
+        for line in f:
+            if 'failed' in line.lower():
+                ip = re.search(r"\d+\.\d+\.\d+\.\d+", line)
+                if ip is None:
+                    print("There is no IP in this line")
+                else:
+                    t = get_time(line)
+                    ip_text = ip.group()
+                    if ip_text in times_ips:
+                        times[ip].append(t)
+                    else:
+                        times[ip] = [t]
+    return times
 
 
 
