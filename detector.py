@@ -105,10 +105,10 @@ def get_window(args):
     if len(args) == 3:
         
         return None
-        try:
-            window = int(args[3])
-        except ValueError:
-            print("Error: Window value must be a number")
+    try:
+        window = int(args[3])
+    except ValueError:
+        print("Error: Window value must be a number")
 
     return window
 
