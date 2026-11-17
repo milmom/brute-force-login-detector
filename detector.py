@@ -92,7 +92,7 @@ def report(path, limit):
 
 def get_limit(args):
     if len(args) < 3:
-        print("Usage: python3 detector.py <logfile> <limit>")
+        print("Usage: python3 detector.py <logfile> <limit> [window]")
         return 
     try:
         limit = int(args[2])
@@ -102,9 +102,8 @@ def get_limit(args):
     return limit
 
 def get_window(args):
-    if len(args) < 3:
-        print("Usage: python3 detector.py <logfile> <limit> ; <window> can be used as a 3rd argument")
-        return 
+    if len(args) < 4:
+        return None
     try:
         window = int(args[3])
     except ValueError:
