@@ -40,3 +40,9 @@ def test_get_time_on_auth_sample_log():
 
 def test_times_by_ip_on_auth_sample_log():
     assert times_by_ip("auth_sample.log")['192.0.2.44'] == [datetime(2026, 11, 6, 9, 14, 22), datetime(2026, 11, 6, 9, 14, 25)]
+
+def test_flag_in_window_on_auth_sample_log():
+    assert flag_in_window(times_by_ip("auth_sample.log"), 2, 10) == ['203.0.113.5', '192.0.2.44']
+
+def test_flag_in_window_on_auth_sample_log():
+    assert flag_in_window(times_by_ip("auth_sample.log"), 3, 60) == []
