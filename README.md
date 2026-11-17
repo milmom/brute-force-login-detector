@@ -1,6 +1,6 @@
 # Brute-Force Login Detector
 
-This script reads an SSH authentication log, finds the failed login attempts(not case-sensitive), and counts them per IP address. Any IP whose count meets or exceeds a limit is flagged with an ALERT line showing its number of failed logins. The log file and the limit are given on the command line, so it can be run against any log without editing the code. Missing or invalid input prints a usage or error message instead of crashing. Finds IPv4 addresses anywhere in the line using regex.
+This script reads an SSH authentication log, finds the failed login attempts(not case-sensitive), and counts them per IP address. Any IP whose count meets or exceeds a limit is flagged with an ALERT line showing its number of failed logins. Additionally, you can identify a window of time(in seconds), then identify failed login attempts equaling or exceeding the limit. The log file and the limit are given on the command line, so it can be run against any log without editing the code. Missing or invalid input prints a usage or error message instead of crashing. Finds IPv4 addresses anywhere in the line using regex.
 
 ## How to run
 
@@ -39,10 +39,14 @@ ERROR: log file not found: missing.log
 $ python3 detector.py auth_sample.log abc
 Error: Limit value must be a number
 
+$ python3 detector.py auth_sample.log 2 10
+ALERT: 203.0.113.5 had 2+ failed logins within 10 seconds
+ALERT: 192.0.2.44 had 2+ failed logins within 10 seconds
+
 $ python3 detector.py
-Usage: python3 detector.py <logfile> <limit>
+Usage: python3 detector.py <logfile> <limit> [window]
 ```
 
 ## Limitations
-- This file doesn't account for time between attempts, meaning that while it is a brute force detector, it may detect failed logins that aren't due to brute forcing
+
 
