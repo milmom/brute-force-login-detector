@@ -10,7 +10,7 @@ def get_time(line):
 
 def times_by_ip(path):
     times = {}
-                else:
+                
     with open(path) as f:
         for line in f:
             if 'failed' in line.lower():
