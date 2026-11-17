@@ -83,13 +83,14 @@ def report(path, limit, window):
     if window is None:
         counts = count_by_ip(detects)
         flagged = flag_ips(counts, limit)
-    
+        
+        if len(flagged) == 0:
+            print("No IPs at or over the limit")
+            return
         for ip in flagged:
         
             print("ALERT:", ip, "had", counts[ip], "failed logins")
 
-        if len(flagged) == 0:
-            print("No IPs at or over the limit")
     else:
         flagged = flag_in_window(times_by_ip(path), limit, window)
         for ip in flagged:
