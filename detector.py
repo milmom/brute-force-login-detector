@@ -25,7 +25,18 @@ def times_by_ip(path):
                         times[ip_text] = [t]
     return times
 
-
+def flag_in_window(times, limit, window):
+    flagged = []
+    for ip in times:
+        ip_times = ip[times]
+        for i in range(len(times) - limit + 1):
+            first = times[i]
+            last = times[i + limit - 1]
+            if (last - first) in seconds <= window:
+                flagged.append()
+                break
+            
+        
 
 def failed_ips(path):
     unsuccessful_logins = []
