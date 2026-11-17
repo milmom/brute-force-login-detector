@@ -44,5 +44,5 @@ def test_times_by_ip_on_auth_sample_log():
 def test_flag_in_window_on_auth_sample_log():
     assert flag_in_window(times_by_ip("auth_sample.log"), 2, 10) == ['203.0.113.5', '192.0.2.44']
 
-def test_flag_in_window_on_auth_sample_log():
+def test_flag_in_window_on_auth_sample_log_empty_list_return():
     assert flag_in_window(times_by_ip("auth_sample.log"), 3, 60) == []
