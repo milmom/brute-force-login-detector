@@ -55,3 +55,6 @@ def test_get_window_string_window():
 
 def test_get_window_int_window():
     assert get_window(["detector.py", "auth_sample.log", "3", "10"]) == 10
+
+def test_get_window_two_arguments():
+    assert get_window(["detector.py", "auth_sample.log"]) == None
