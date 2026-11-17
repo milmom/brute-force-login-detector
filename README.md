@@ -40,8 +40,8 @@ $ python3 detector.py auth_sample.log abc
 Error: Limit value must be a number
 
 $ python3 detector.py auth_sample.log 2 10
-ALERT: 203.0.113.5 had 2+ failed logins within 10 seconds
-ALERT: 192.0.2.44 had 2+ failed logins within 10 seconds
+ALERT: 203.0.113.5 had 2 or more failed logins within 10 seconds
+ALERT: 192.0.2.44 had 2 or more failed logins within 10 seconds
 
 $ python3 detector.py
 Usage: python3 detector.py <logfile> <limit> [window]
