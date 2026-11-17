@@ -102,9 +102,9 @@ def get_limit(args):
     return limit
 
 def get_window(args):
-    if len(args) == 3:
-        
-        return None
+    if len(args) < 3:
+        print("Usage: python3 detector.py <logfile> <limit> ; <window> can be used as a 3rd argument")
+        return 
     try:
         window = int(args[3])
     except ValueError:
