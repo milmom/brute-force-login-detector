@@ -101,6 +101,18 @@ def get_limit(args):
         return None
     return limit
 
+def get_window(args):
+    if len(args) == 3:
+        
+        return None
+        try:
+            window = int(args[3])
+        except ValueError:
+            print("Error: Window value must be a number")
+
+    return window
+
+
 if __name__ == "__main__":        
     
     num = get_limit(sys.argv)
