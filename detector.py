@@ -94,7 +94,7 @@ def report(path, limit, window):
         flagged = flag_in_window(times_by_ip(path), limit, window)
         
         if len(flagged) == 0:
-                print("No IPs were flagged")
+            print("No IPs were flagged")
                 return
         for ip in flagged:
             print("ALERT:", ip, "had", limit, "or more failed logins within", window, "seconds")
