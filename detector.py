@@ -93,7 +93,7 @@ def report(path, limit, window):
     else:
         flagged = flag_in_window(times_by_ip(path), limit, window)
         for ip in flagged:
-            print("ALERT:" ip, "had", limit, "or more failed logins within", window, "seconds")
+            print("ALERT:", ip, "had", limit, "or more failed logins within", window, "seconds")
 
 def get_limit(args):
     if len(args) < 3:
