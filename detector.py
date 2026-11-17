@@ -47,7 +47,7 @@ def failed_ips(path):
                 ip = re.search(r"\d+\.\d+\.\d+\.\d+", line)
                 if ip is None:
                     print("There is no IP in this line")
-                
+                else:
                     unsuccessful_logins.append(ip.group())
                 
         
