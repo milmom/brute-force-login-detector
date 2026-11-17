@@ -10,6 +10,7 @@ def get_time(line):
 
 def times_by_ip(path):
     times = {}
+                else:
     with open(path) as f:
         for line in f:
             if 'failed' in line.lower():
@@ -47,7 +48,6 @@ def failed_ips(path):
                 if ip is None:
                     print("There is no IP in this line")
                 
-                else:
                     unsuccessful_logins.append(ip.group())
                 
         
@@ -93,7 +93,11 @@ def report(path, limit, window):
     else:
         flagged = flag_in_window(times_by_ip(path), limit, window)
         for ip in flagged:
-            print("ALERT:", ip, "had", limit, "or more failed logins within", window, "seconds")
+            if len(flagged) == 0:
+                print("No IPs were flagged")
+                return
+            else:
+                print("ALERT:", ip, "had", limit, "or more failed logins within", window, "seconds")
 
 def get_limit(args):
     if len(args) < 3:
