@@ -109,7 +109,7 @@ def get_window(args):
         window = int(args[3])
     except ValueError:
         print("Error: Window value must be a number")
-
+        return None
     return window
 
 
