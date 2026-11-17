@@ -1,5 +1,5 @@
 from datetime import datetime
-from detector import failed_ips, count_by_ip, flag_ips, get_limit, get_time, times_by_ip, flag_in_window # pytest tests for detector.py
+from detector import failed_ips, count_by_ip, flag_ips, get_limit, get_time, times_by_ip, flag_in_window, get_window # pytest tests for detector.py
 #flag_ips with nothing flagged, and failed_ips("auth_sample.log"). (Note: importing detector runs its bottom lines too, so the report output will also print. 
 
 def test_count_by_ip_empty():
@@ -46,3 +46,12 @@ def test_flag_in_window_on_auth_sample_log():
 
 def test_flag_in_window_on_auth_sample_log_empty_list_return():
     assert flag_in_window(times_by_ip("auth_sample.log"), 3, 60) == []
+
+def test_get_window_no_window():
+    assert get_window(["detector.py", "auth_sample.log", "3"]) == None
+
+def test_get_window_string_window():
+    assert get_window(["detector.py", "auth_sample.log", "3", "abc"]) == None
+
+def test_get_window_int_window():
+    assert get_window(["detector.py", "auth_sample.log", "3", "10"]) == 10
