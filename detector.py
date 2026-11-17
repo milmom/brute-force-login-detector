@@ -121,7 +121,8 @@ if __name__ == "__main__":
     
     num = get_limit(sys.argv)
     if num is not None:
-        report(sys.argv[1], num) 
+        window = get_window(sys.argv)
+        report(sys.argv[1], num, window) 
         
     
    
