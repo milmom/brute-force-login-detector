@@ -48,7 +48,7 @@ Usage: python3 detector.py <logfile> <limit> [window]
 ```
 
 ## Limitations
--Year is hardcoded(2026), so logs from previous or future logs get wrong dates
--Only IPv4 addresses are found. The regex doesn't find IPv6 addresses
--The script compares positions in a list, relying on the log being written in time order
+- Year is hardcoded(2026), so logs from previous or future logs get wrong dates
+- Only IPv4 addresses are found. The regex doesn't find IPv6 addresses
+- The script compares positions in a list, relying on the log being written in time order
 
